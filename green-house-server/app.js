@@ -3,7 +3,8 @@ const bodyParser = require("body-parser");
 const config = require('./config')
 const InitiateMongoServer = require("./config/db");
 const router = require('./components/router');
-InitiateMongoServer();
+
+InitiateMongoServer(config.mongouri);
 const app = express();
 
 // Middleware
@@ -14,6 +15,6 @@ app.use('/',router)
 
 
 app.listen(config.port, (req, res) => {
-  console.log(`Server Started at PORT ${config.port}`);
+  console.log(`Server Started at PORT ${config.port} in ${config.env} mode`);
 });
 

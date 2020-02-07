@@ -3,7 +3,7 @@ const bcrypt = require("bcryptjs")
 const jwt = require("jsonwebtoken")
 const Validator = require('validatorjs')
 
-const register = async (req, res) => {
+const signup = async (req, res) => {
 
 
     try {
@@ -67,4 +67,4 @@ const register = async (req, res) => {
 
 }
 
-exports.register = register
+exports.signup = signup

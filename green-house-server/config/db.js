@@ -1,10 +1,9 @@
 const mongoose = require("mongoose");
 
-const MONGOURI = "mongodb+srv://apaezr:wcwecx98@mycloster-o7cd1.mongodb.net/test?retryWrites=true&w=majority";
-
-const InitiateMongoServer = async () => {
+const InitiateMongoServer = async (uri) => {
   try {
-    await mongoose.connect(MONGOURI, {
+    console.log(uri)
+    await mongoose.connect(uri, {
       useNewUrlParser: true,
       useUnifiedTopology: true
     });

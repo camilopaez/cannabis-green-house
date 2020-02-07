@@ -8,6 +8,8 @@ const plantController = require('./plants/controller')
 const authenticacionController = require('./authentication/controller')
 const userController = require('./user/controller')
 
-router.post('/auth', userController.register)
+router.post('/signup', userController.signup)
+router.post('/login', authenticacionController.login)
+
 
 module.exports = router
