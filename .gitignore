@@ -38,6 +38,9 @@ bower_components
 build/Release
 
 # Dependency directories
+green-house-server/node_modules
+green-house-client/node_modules
+
 node_modules/
 jspm_packages/
 

@@ -1,20 +1,19 @@
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+const express = require("express");
+const bodyParser = require("body-parser");
+const config = require('./config')
+const InitiateMongoServer = require("./config/db");
+const router = require('./components/router');
+InitiateMongoServer();
+const app = express();
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+// Middleware
+app.use(bodyParser.json());
 
-var app = express();
+//routes
+app.use('/',router)
 
-app.use(logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.listen(config.port, (req, res) => {
+  console.log(`Server Started at PORT ${config.port}`);
+});
 
-module.exports = app;
