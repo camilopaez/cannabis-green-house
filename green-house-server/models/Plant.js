@@ -1,10 +1,7 @@
 const mongoose = require("mongoose");
 
 const PlantSchema = mongoose.Schema({
-    green_house_id: {
-        type: String,
-        required: true
-    },
+    
     plant_id: {
         type: String,
         required: true
@@ -16,11 +13,8 @@ const PlantSchema = mongoose.Schema({
     wetness: {
         type: Number,
         required: true
-    },
-    type: {
-        type: String,
-        required: true
     }
+    
 
 });
 

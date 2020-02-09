@@ -10,6 +10,7 @@ const userController = require('./user/controller')
 
 router.post('/signup', userController.signup)
 router.post('/login', authenticacionController.login)
-
+router.post('/save', plantController.saveData)
+router.get('/get', plantController.getData)
 
 module.exports = router
