@@ -7,25 +7,24 @@ interface.
 
 Backend structure
 
-![](.//media/image1.png){width="2.3881944444444443in"
-height="1.8159722222222223in"}The file skeleton was thought in order to
+![](.//media/image1.png)
+The file skeleton was thought in order to
 follow the MVC pattern.
 
-![](.//media/image2.png){width="2.28125in"
-height="1.4166666666666667in"}Components: where the controllers are
+![](.//media/image2.png)
+Components: where the controllers are
 placed separated by their fuctions.
 
 Config: Where we can found enviroment variables as such used port and
 database endpoint dependng on what enviroment is currently spoted to
 (development, production or testing )and database
-conection.![](.//media/image3.png){width="6.166666666666667in"
-height="0.8854166666666666in"}![](.//media/image3.png){width="6.166666666666667in"
-height="0.8854166666666666in"}
+conection.![](.//media/image3.png)!
+[](.//media/image3.png)
 
 Models: Where are placed the mongoose schemas so that we can manage the
 data
 
-![](.//media/image5.png){width="5.0in" height="2.78125in"}
+![](.//media/image5.png)
 
 App: the main app's point, it sets up every component, route, model and
 others libraries we can use.
@@ -39,8 +38,7 @@ Authentication:
 Was used JWT so that we generate the token access and we send it with
 the data request.
 
-![](.//media/image6.png){width="6.268055555555556in"
-height="3.111111111111111in"}
+![](.//media/image6.png)
 
 Database:
 
@@ -50,4 +48,4 @@ Mongo Atlas clouster due to guarantee the app availability.
 There are three different enviroment, testing, development and
 production.
 
-![](.//media/image7.png){width="6.455555555555556in" height="3.1875in"}
+![](.//media/image7.png)
