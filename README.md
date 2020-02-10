@@ -36,6 +36,12 @@ Packages: node's manifest file
 
 Authentication:
 
+Was used JWT so that we generate the token access and we send it with
+the data request.
+
+![](.//media/image6.png){width="6.268055555555556in"
+height="3.111111111111111in"}
+
 Database:
 
 For this project I used mongodb engine but is not running in host but in
@@ -44,4 +50,4 @@ Mongo Atlas clouster due to guarantee the app availability.
 There are three different enviroment, testing, development and
 production.
 
-![](.//media/image6.png){width="6.455555555555556in" height="3.1875in"}
+![](.//media/image7.png){width="6.455555555555556in" height="3.1875in"}
