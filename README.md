@@ -50,3 +50,36 @@ Mongo Atlas clouster due to guarantee the app availability.
 There are three different enviroment, testing, development and
 production.
 ![](.//media/image7.png)
+
+# Regard to the require questions
+
+## ¿What technology was used?
+
+### Back-End
+Was used node in its 8 version with the structure described above.  
+
+### Front-End
+Was used React.js
+
+## Which are the API service specifications in the back-end side? 
+Were created three different components that are related to some functionalities such as 
+registering users, authenticating users and getting plants information in real time (simulated)
+
+## How was implemented the user authentication?
+Was used JWT strategic as it was showed in the image avobe.
+
+## Which were the main difficulties found while building the app? 
+
+### Technology unknowledge
+The main issue regard to the used technology was the use of a front-end framework,
+since others projects in the past were made througtout template engines as ejs or jade
+
+### What concepts weren't known to make the project?
+Restful API request and how to build the app architecture
+
+### What skills or concepts are  missing to get the project over?
+None
+
+### What was missing to get the project over?
+None
+
