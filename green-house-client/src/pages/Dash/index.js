@@ -16,13 +16,18 @@ const Dash = props => {
     setData(response)
   }
 
-  useEffect(() => {
-    setInterval(() => {
-      fetchAPI()
-    }, 1000)
-  }, [fetchAPI])
+  // useEffect(() => {
+  //   setInterval(() => {
+  //     fetchAPI()
+  //   }, 1000)
+  // }, [fetchAPI])
 
-  return <div>hola {console.log(data)}</div>
+  return (
+    <div>
+      hola {console.log(data)}
+      <button onClick={() => fetchAPI()}>asd</button>
+    </div>
+  )
 }
 
 const mapStateToProps = state => {
