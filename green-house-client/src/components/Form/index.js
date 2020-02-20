@@ -2,22 +2,31 @@ import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import { Container, Row, Button } from 'reactstrap'
 import { connect } from 'react-redux'
-import axios from "axios"
+import axios from 'axios'
 import { Input, Col } from './styles'
 
-const Form = () => {
+const Form = props => {
   const history = useHistory()
   const [user, setUser] = useState('')
   const [pwd, setPwd] = useState('')
+  const [token, setToken] = useState(null)
 
-  async function pushName(){
-    axios.post('10.5.7.166:4200/login')
+  const data = {
+    username: user,
+    password: pwd
+  }
+  async function pushName() {
+    const res = await axios.post('http://localhost:4200/login', data)
+    setToken(res.data.token)
   }
 
   const handleSubmit = e => {
     e.preventDefault()
-
-    history.push('/dashboard')
+    pushName()
+    if (token != null) {
+      props.onSubmit(token)
+      history.push('/dashboard')
+    }
   }
 
   return (
@@ -55,10 +64,10 @@ const Form = () => {
   )
 }
 
-const mapDispatchToProps = dispatch =>{
-  return{
+const mapDispatchToProps = dispatch => {
+  return {
     onSubmit: token => {
-      dispatch({ type: "REQUEST", payload:{ token: token }})
+      dispatch({ type: 'REQUEST', payload: { token: token } })
     }
   }
 }

@@ -6,7 +6,13 @@ const Dash = props => {
   const [data, setData] = useState({ plants: [] })
 
   async function fetchAPI() {
-    let response = await axios.get('https://rickandmortyapi.com/api/character')
+    let response = await axios({
+      method: 'get',
+      url: 'http://localhost:4200/get',
+      headers: {
+        Authorization: props.token
+      }
+    })
     setData(response)
   }
 
@@ -14,9 +20,9 @@ const Dash = props => {
     setInterval(() => {
       fetchAPI()
     }, 1000)
-  }, [])
+  }, [fetchAPI])
 
-  return <div>hola {console.log(props.token)}</div>
+  return <div>hola {console.log(data)}</div>
 }
 
 const mapStateToProps = state => {
