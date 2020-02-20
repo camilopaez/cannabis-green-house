@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import axios from 'axios'
 
 const Dash = props => {
-  const [data, setData] = useState({ plants: [] })
+  const [data, setData] = useState([])
 
   async function fetchAPI() {
     let response = await axios({
@@ -13,21 +13,40 @@ const Dash = props => {
         Authorization: props.token
       }
     })
-    setData(response)
+    setData(response.data)
   }
+  setInterval(() => {
+    fetchAPI()
+  }, 3000)
 
-  // useEffect(() => {
-  //   setInterval(() => {
-  //     fetchAPI()
-  //   }, 1000)
-  // }, [fetchAPI])
+  if (data !== undefined || data !== []) {
+    console.log(data)
+    return (
+      <div>
+        <table>
+          <tr>
+            <th>Plant id</th>
+            <th>Temperature</th>
+            <th>Wetness</th>
+          </tr>
 
-  return (
-    <div>
-      hola {console.log(data)}
-      <button onClick={() => fetchAPI()}>asd</button>
-    </div>
-  )
+          {data.map((item, i) => {
+            console.log('item', item)
+            console.log(i)
+            return (
+              <tr>
+                <td key={i}>{item.plant_id}</td>
+                <td key={i + 'temperature'}>{item.temperature}</td>
+                <td key={i + 'wetness'}>{item.wetness}</td>
+              </tr>
+            )
+          })}
+        </table>
+      </div>
+    )
+  } else {
+    return <div>loading</div>
+  }
 }
 
 const mapStateToProps = state => {
