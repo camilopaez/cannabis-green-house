@@ -4,8 +4,27 @@ const jwt = require('jsonwebtoken');
 const saveData = async (req, res) => {
 
     try {
-        const plant = new Plant(req.body)
-        await plant.save()
+
+        const plants = req.body
+
+        plants.forEach(async body => {
+            const filter = {
+                plant_id: body.plant_id
+            };
+            const update = {
+                temperature: body.temperature,
+                wetness: body.wetness
+            };
+
+            await Plant.countDocuments(filter); // 0
+
+            let doc = await Plant.findOneAndUpdate(filter, update, {
+                new: true,
+                upsert: true // Make this update into an upsert
+            });
+        });
+
+
         res.status(200).send("successfully saved")
 
     } catch (error) {

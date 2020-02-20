@@ -55,8 +55,8 @@ const login = async (req, res) => {
             res.status(500).send("Invalid username or password");
         }
     } catch (error) {
-        console.log(err.message);
-        res.status(500).send("Error in Saving");
+       
+        res.status(500).send(error.message);
     }
 }
 
